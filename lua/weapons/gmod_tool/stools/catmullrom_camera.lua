@@ -2,7 +2,7 @@ TOOL.Category   = "Main"
 TOOL.Name       = "Camera Layout"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
+TOOL.Tab        = "Catmull-Rom CC 360°"
 
 
 

@@ -189,7 +189,7 @@ function STool.Think(self)
 end
 
 function STool.BuildCPanel(panel)
-	--panel:AddControl("Header", {Text = "Catmull-Rom Cinematic Cameras: Track Layout Creator", Description = "Use this to create your track's layout!"})
+	--panel:AddControl("Header", {Text = "Catmull-Rom CC 360°: Track Layout Creator", Description = "Use this to create your track's layout!"})
 	
 	panel:AddControl("Numpad",   {Label = "Track Trigger Key: ", Command = "catmullrom_camera_key", ButtonSize = 22})
 	

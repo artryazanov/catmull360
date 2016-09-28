@@ -377,7 +377,7 @@ function ENT:ClearTrack(ent, trackidx, dont_loop_back)
 		
 		return
 	end
-	if !self.CatmullRomController["PointsList"] then self:ResetController(self) end -- This is all I could think of.
+	if not self.CatmullRomController["PointsList"] then self:ResetController(self) end -- This is all I could think of.
 	self.CatmullRomController.PointsList[trackidx]    = nil
 	
 	self.CatmullRomController.FacingsList[trackidx]   = nil

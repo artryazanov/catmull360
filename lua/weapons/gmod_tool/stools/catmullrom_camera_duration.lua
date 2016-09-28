@@ -2,7 +2,7 @@ TOOL.Category   = "Behavior Modifiers"
 TOOL.Name       = "Duration Editor"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
+TOOL.Tab        = "Catmull-Rom CC 360°"
 
 TOOL.ClientConVar["duration"] = "2"
 TOOL.ClientConVar["duration_mps"] = "1"

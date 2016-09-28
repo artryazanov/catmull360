@@ -2,7 +2,7 @@ TOOL.Category   = "Behavior Modifiers"
 TOOL.Name       = "Smart Look"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
+TOOL.Tab        = "Catmull-Rom CC 360°"
 
 TOOL.ClientConVar["block"]   = tostring(MASK_OPAQUE)
 TOOL.ClientConVar["target"]  = "1"

@@ -39,7 +39,7 @@ local function AddLua(filename)
 	elseif CLIENT then
 		if (parts[1] == "sh") or (parts[1] == "cl") or (parts[1] == "shared.lua") then
 			return include(filename)
-		elseif (parts[1] == "sv") or (parts[1] == "init.lua") then //others, just to keep the system happy
+		elseif (parts[1] == "sv") or (parts[1] == "init.lua") then --others, just to keep the system happy
 			return
 		end
 		

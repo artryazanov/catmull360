@@ -2,7 +2,7 @@ TOOL.Category   = "Behavior Modifiers"
 TOOL.Name       = "Hitchcock Effect"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
+TOOL.Tab        = "Catmull-Rom CC 360°"
 
 TOOL.ClientConVar["width"]  = "4"
 TOOL.ClientConVar["endfov"] = "25"

@@ -2,7 +2,7 @@ TOOL.Category   = "Event Triggering"
 TOOL.Name       = "Map I/O Editor"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
+TOOL.Tab        = "Catmull-Rom CC 360°"
 
 TOOL.ClientConVar["user1"] = "0"
 TOOL.ClientConVar["user2"] = "0"
