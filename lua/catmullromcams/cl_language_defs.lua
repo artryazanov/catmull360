@@ -2,10 +2,6 @@ language.Add("Tool.catmullrom_camera.name", "Catmull-Rom CC 360°: Track Layout"
 language.Add("Tool.catmullrom_camera.desc", "Spawn a new segment on your current numpad key's track.")
 language.Add("Tool.catmullrom_camera.0",    "Left click to spawn a new segment, or to update mutable settings on an existing camera.\nRight click to spawn a new segment that will track an entity.")
 
-language.Add("Tool.catmullrom_camera_recording360.name", "Catmull-Rom CC 360°: 360° Recording")
-language.Add("Tool.catmullrom_camera_recording360.desc", "Tool for recording 360° video.")
-language.Add("Tool.catmullrom_camera_recording360.0",    "Bla-bla-bla.")
-
 language.Add("Tool.catmullrom_camera_duration.name", "Catmull-Rom CC 360°: Duration Editor")
 language.Add("Tool.catmullrom_camera_duration.desc", "Modifies a track segment's duration.")
 language.Add("Tool.catmullrom_camera_duration.0",    "Left click to set the duration of a track segment. Right click to copy it.\nReload to reset it to default (2 sec.). Use shift + left click for setting meters per seconds.")

@@ -29,6 +29,8 @@ function STool.LeftClick(self, trace)
 	
 	local roll_enabled = (self:GetClientNumber("enable_roll") == 1)
 	local roll         =  self:GetClientNumber("roll")
+
+	local recording_360 = (self:GetClientNumber("recording_360") == 1)
 	
 	if trace.Entity then
 		if trace.Entity:IsPlayer() then return end
@@ -45,6 +47,8 @@ function STool.LeftClick(self, trace)
 			
 			trace.Entity:SetEnableRoll(roll_enabled)
 			trace.Entity:SetRoll(roll)
+
+			trace.Entity:SetRecording360(recording_360)
 			
 			return true
 		end
@@ -73,9 +77,9 @@ function STool.LeftClick(self, trace)
 	else
 		camera:SetNWBool("IsMasterController", true)
 		camera:SetNWEntity("ControllingPlayer", ply)
-		
+
 		camera:SetKey(key)
-		
+
 		numpad.OnDown(ply, key, "CatmullRomCamera_Toggle", camera)
 	end
 	
@@ -90,6 +94,8 @@ function STool.LeftClick(self, trace)
 	camera:SetZoom(zoom or 75)
 	camera:SetEnableRoll(roll_enabled)
 	camera:SetRoll(roll)
+
+	camera:SetRecording360(recording_360)
 	
 	camera:SetNWEntity("MasterController", CatmullRomCams.Tracks[plyID][key][1])
 	
@@ -133,7 +139,9 @@ function STool.RightClick(self, trace)
 		
 		ply:ConCommand("catmullrom_camera_enable_roll " .. (trace.Entity.EnableRoll and 1 or 0) .. "\n")
 		ply:ConCommand("catmullrom_camera_roll "        .. (trace.Entity.Roll or 0) .. "\n")
-		
+
+		ply:ConCommand("catmullrom_camera_recording_360 " .. (trace.Entity.Recording360 and 1 or 0) .. "\n")
+
 		return true
 	end
 	
@@ -166,6 +174,9 @@ function STool.Reload(self, trace)
 		
 		ply:ConCommand("catmullrom_camera_enable_roll 0\n")
 		ply:ConCommand("catmullrom_camera_roll 0\n")
+
+		ply:ConCommand("catmullrom_camera_recording_360 0\n")
+
 	else
 		trace.Entity:SetFaceTravelDir(false)
 		
@@ -177,6 +188,8 @@ function STool.Reload(self, trace)
 		
 		trace.Entity:SetEnableRoll(false)
 		trace.Entity.SetRoll(0)
+
+		trace.Entity:SetRecording360(false)
 	end
 	
 	return true
@@ -206,4 +219,6 @@ function STool.BuildCPanel(panel)
 	
 	--panel:AddControl("CheckBox", {Label = "Don't Stop At Track End: ", Description = "(Requires to be on Control node.) Just stay at the last position at the end of the track.", Command = "catmullrom_camera_enable_stay_on_end"})
 	--panel:AddControl("CheckBox", {Label = "Loop Track: ",              Description = "(Requires to be on Control node & that the option above is on.) But loop instead.", Command = "catmullrom_camera_enable_looping"})
+
+	panel:AddControl("CheckBox", {Label = "Enable 360° Recording", Command = "catmullrom_camera_recording_360"})
 end

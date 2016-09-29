@@ -33,6 +33,20 @@ end
 
 function ENT:On(ply)
 	if SERVER and self:GetNWBool("IsMasterController") and (ply:GetNWEntity("UnderControlCatmullRomCamera") == NULL) then
+
+		local recording_360 = GetConVar("catmullrom_camera_recording_360"):GetBool();
+		if recording_360 then
+
+			if self.RecordStarted then
+				self.RecordStarted = false
+				return print("Record Stopped!")
+			else
+				self.RecordStarted = true
+				print("Record Started!")
+			end
+
+		end
+
 		print("toggle on: ", ply)
 		
 		self:GetPointData()
@@ -107,6 +121,8 @@ function ENT:RequestSaveData()
 	
 	tbl.EnableRoll = self.EnableRoll
 	tbl.Roll       = self.Roll
+
+	tbl.Recording360 = self.Recording360
 	
 	tbl.SmartLookEnabled      = self.SmartLookEnabled
 	tbl.SmartLookRange        = self.SmartLookRange
@@ -143,6 +159,8 @@ function ENT:ApplySaveData(ply, plyID, CreatedEntities, CatmullRomCamsDupData)
 	
 	self.EnableRoll = tbl.EnableRoll
 	self.Roll       = tbl.Roll
+
+	self.Recording360 = tbl.Recording360
 	
 	self.SmartLookEnabled      = tbl.SmartLookEnabled
 	self.SmartLookRange        = tbl.SmartLookRange
@@ -273,6 +291,11 @@ end
 
 function ENT:SetEnableRoll(bool)
 	self.EnableRoll = bool
+end
+
+function ENT:SetRecording360(bool)
+	self.Recording360 = bool
+	self:SetNWBool("Recording360", bool)
 end
 
 function ENT:SetRoll(roll)
@@ -421,15 +444,9 @@ function ENT:OnRemove()
 		
 		if not self.CLTrackIndex then 
 
-
 			if self:GetNWEntity("MasterController") then
 				self:GetNWEntity("MasterController"):GetPointData() 
 			end
-			
-
-
-
-
 
 		end
 		

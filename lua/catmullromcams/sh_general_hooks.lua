@@ -50,7 +50,7 @@ if CLIENT then
 				surface.DrawRect(0, 0, ScrW(), ScrH())
 			end
 			
-			//return true
+			--return true
 		end
 	end
 	hook.Add("RenderScreenspaceEffects", "CatmullRomCams.CL.BlackenScreenDuringTunneling", CatmullRomCams.CL.BlackenScreenDuringTunneling)
