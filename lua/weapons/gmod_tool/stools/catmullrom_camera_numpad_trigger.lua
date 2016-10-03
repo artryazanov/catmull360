@@ -2,7 +2,7 @@ TOOL.Category   = "Event Triggering"
 TOOL.Name       = "Numpad Trigger Editor"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom CC 360°"
+TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
 
 TOOL.ClientConVar["keys"] = "-1"
 TOOL.ClientConVar["hold"] = "0"

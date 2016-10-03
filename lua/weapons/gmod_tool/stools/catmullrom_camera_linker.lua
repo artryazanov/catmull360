@@ -2,7 +2,7 @@ TOOL.Category   = "Behavior Modifiers"
 TOOL.Name       = "Linker"
 TOOL.Command    = nil
 TOOL.ConfigName	= nil
-TOOL.Tab        = "Catmull-Rom CC 360°"
+TOOL.Tab        = "Catmull-Rom Cinematic Cameras"
 
 function TOOL:LeftClick(trace)
 	return CatmullRomCams.SToolMethods.Linker.LeftClick(self, trace)
