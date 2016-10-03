@@ -22,7 +22,9 @@ TOOL.ClientConVar["roll"]        = "0"
 --TOOL.ClientConVar["enable_stay_on_end"] = "0"
 --TOOL.ClientConVar["enable_looping"]     = "0"
 
-TOOL.ClientConVar["recording_360"]        = "0"
+TOOL.ClientConVar["recording_360"]      = "0"
+TOOL.ClientConVar["recording_360_step"]	= "1"
+TOOL.ClientConVar["recording_360_fov"]	= "110"
 
 function TOOL:LeftClick(trace)
 	return CatmullRomCams.SToolMethods.Layout.LeftClick(self, trace)

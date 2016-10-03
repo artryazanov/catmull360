@@ -38,6 +38,7 @@ local function CreateNode(ply, plyID, key, pos, ang, fov, width)
 	camera:SetRoll(0)
 
 	camera:SetRecording360(false)
+	camera:SetRecording360Step(1)
 	
 	camera:SetNWEntity("MasterController", CatmullRomCams.Tracks[plyID][key][1])
 	

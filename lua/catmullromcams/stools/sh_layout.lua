@@ -31,6 +31,7 @@ function STool.LeftClick(self, trace)
 	local roll         =  self:GetClientNumber("roll")
 
 	local recording_360 = (self:GetClientNumber("recording_360") == 1)
+	local recording_360_step = self:GetClientNumber("recording_360_step")
 	
 	if trace.Entity then
 		if trace.Entity:IsPlayer() then return end
@@ -49,6 +50,7 @@ function STool.LeftClick(self, trace)
 			trace.Entity:SetRoll(roll)
 
 			trace.Entity:SetRecording360(recording_360)
+			trace.Entity:SetRecording360Step(recording_360_step)
 			
 			return true
 		end
@@ -96,6 +98,7 @@ function STool.LeftClick(self, trace)
 	camera:SetRoll(roll)
 
 	camera:SetRecording360(recording_360)
+	camera:SetRecording360Step(recording_360_step)
 	
 	camera:SetNWEntity("MasterController", CatmullRomCams.Tracks[plyID][key][1])
 	
@@ -141,6 +144,7 @@ function STool.RightClick(self, trace)
 		ply:ConCommand("catmullrom_camera_roll "        .. (trace.Entity.Roll or 0) .. "\n")
 
 		ply:ConCommand("catmullrom_camera_recording_360 " .. (trace.Entity.Recording360 and 1 or 0) .. "\n")
+		ply:ConCommand("catmullrom_camera_recording_360_step " .. (trace.Entity.Recording360Step or 1) .. "\n")
 
 		return true
 	end
@@ -176,6 +180,7 @@ function STool.Reload(self, trace)
 		ply:ConCommand("catmullrom_camera_roll 0\n")
 
 		ply:ConCommand("catmullrom_camera_recording_360 0\n")
+		ply:ConCommand("catmullrom_camera_recording_360_step 1\n")
 
 	else
 		trace.Entity:SetFaceTravelDir(false)
@@ -190,6 +195,7 @@ function STool.Reload(self, trace)
 		trace.Entity.SetRoll(0)
 
 		trace.Entity:SetRecording360(false)
+		trace.Entity:SetRecording360Step(1)
 	end
 	
 	return true
@@ -221,4 +227,6 @@ function STool.BuildCPanel(panel)
 	--panel:AddControl("CheckBox", {Label = "Loop Track: ",              Description = "(Requires to be on Control node & that the option above is on.) But loop instead.", Command = "catmullrom_camera_enable_looping"})
 
 	panel:AddControl("CheckBox", {Label = "Enable 360° Recording", Command = "catmullrom_camera_recording_360"})
+	panel:AddControl("Slider",   {Label = "Recording Step: ", Type = "Integer", Min = "1", Max = "6", Command = "catmullrom_camera_recording_360_step"})
+
 end

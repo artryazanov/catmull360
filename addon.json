@@ -1,0 +1,11 @@
+{
+  "title"	:	"Catmull-rom Cinematic Cameras 360° Assistant",
+  "type"	:	"tool",
+  "tags"	:	["scenic", "movie"],
+  "ignore"	:
+  [
+    ".idea/*",
+    ".git/*",
+    ".gitignore"
+  ]
+}
